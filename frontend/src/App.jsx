@@ -1,10 +1,14 @@
+import Hero from "./components/Hero"
+import Navbar from "./components/Navbar"
+import WhoIsItFor from "./components/WhoIsItFor"
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black">
-      <h1 className="text-4xl font-bold text-green-400">
-        Tailwind v4 is working 🚀
-      </h1>
-    </div>
+    <>
+      <Navbar />
+      <Hero />
+      <WhoIsItFor />
+    </>
   )
 }
 
