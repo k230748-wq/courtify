@@ -3,6 +3,7 @@ import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import WhoIsItFor from "./components/WhoIsItFor"
 import Preloader from "./components/Preloader"
+import WaitList from "./components/Waitlist"
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -14,6 +15,7 @@ function App() {
           <Navbar />
           <Hero />
           <WhoIsItFor />
+          <WaitList />
         </div>
       )}
     </>
