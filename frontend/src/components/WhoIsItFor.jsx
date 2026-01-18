@@ -2,7 +2,7 @@ import { Users, MapPin, Trophy } from "lucide-react";
 
 const WhoIsItFor = () => {
   return (
-    <section className="relative bg-[#06131f] text-white py-28 overflow-hidden">
+    <section id="who" className="relative bg-[#06131f] text-white py-28 overflow-hidden">
       
       {/* Decorative dots */}
       <div className="absolute left-12 top-24 grid grid-cols-6 gap-1 opacity-40">

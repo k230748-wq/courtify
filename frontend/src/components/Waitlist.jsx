@@ -47,7 +47,7 @@ export default function WaitList() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#06131f', color: '#ffffff' }}>
+    <div id='waitlist' className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#06131f', color: '#ffffff' }}>
       <div className="w-full max-w-md">
         <div
           className="rounded-2xl shadow-2xl p-8 border"
