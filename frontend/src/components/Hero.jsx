@@ -10,9 +10,9 @@ const Hero = () => {
   };
 
   return (
-    <section
+    <section 
       id="home"
-      className="relative min-h-screen flex items-center justify-center text-center"
+      className="relative min-h-screen flex items-center justify-center text-center  "
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1518091043644-c1d4457512c6')",
@@ -21,10 +21,10 @@ const Hero = () => {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/70 h-full flex items-center justify-center"/>
 
       {/* Content */}
-      <div className="relative z-10 px-6 max-w-5xl">
+      <div className="relative z-10 px-6 max-w-5xl mt-30 flex flex-col items-center justify-center">
         <p className="text-green-400 font-bold text-xl md:text-3xl mb-6 tracking-widest uppercase">
           Pakistan's Sports Booking Ecosystem
         </p>

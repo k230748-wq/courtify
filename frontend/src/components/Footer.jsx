@@ -1,184 +1,112 @@
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import React from "react";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  const footerLinks = {
-    product: [
-      { name: "Features", href: "#features" },
-      { name: "How It Works", href: "#how-it-works" },
-      { name: "Pricing", href: "#pricing" },
-      { name: "Download App", href: "#download" }
-    ],
-    company: [
-      { name: "About Us", href: "#about" },
-      { name: "Careers", href: "#careers" },
-      { name: "Blog", href: "#blog" },
-      { name: "Press Kit", href: "#press" }
-    ],
-    support: [
-      { name: "Help Center", href: "#help" },
-      { name: "Contact Us", href: "#contact" },
-      { name: "Terms of Service", href: "#terms" },
-      { name: "Privacy Policy", href: "#privacy" }
-    ],
-    partners: [
-      { name: "Join as Court Owner", href: "#court-owner" },
-      { name: "Become a Coach", href: "#coach" },
-      { name: "Partner Programs", href: "#partners" },
-      { name: "Affiliate", href: "#affiliate" }
-    ]
-  };
-
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" }
-  ];
-
   return (
-    <footer className="relative bg-[#06131f] text-white border-t border-white/10">
+    <footer className="flex flex-col items-center justify-center w-full py-20 bg-[#06131f] text-white/70">
       
+      {/* Logo */}
+      <div className="flex items-center gap-2">
+        <img
+          src="/ctfy-02.png"
+          className="w-30 h-30 brightness-0 invert"
+          alt="Courtify"
+        />
+        <h1 className="text-xl font-semibold text-white">Courtify</h1>
+      </div>
 
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
+      {/* Copyright */}
+      <p className="mt-4 text-center text-sm">
+        Copyright © 2026{" "}
+        <a href="#" className="text-white hover:text-green-500 transition">
+          Courtify
+        </a>
+        . All rights reserved.
+      </p>
+
+      {/* Social Icons */}
+      <div className="flex items-center gap-5 mt-6">
         
-        {/* Top Section: Brand */}
-        <div className="mb-16">
-          <div className="max-w-md">
-            <h3 className="text-3xl font-extrabold text-green-400 mb-3">
-              Courtify
-            </h3>
-            <div className="w-16 h-1 bg-green-400 mb-4" />
-            <p className="text-white/70 leading-relaxed mb-6">
-              Pakistan's first comprehensive sports booking platform. Connecting players, coaches, and venues across the nation.
-            </p>
+        {/* Facebook */}
+        <a
+          href="#"
+          className="text-white/50 hover:text-green-500 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </a>
 
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-white/60 hover:text-green-400 transition-colors duration-300">
-                <MapPin size={18} className="shrink-0" />
-                <span className="text-sm">Karachi, Pakistan</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/60 hover:text-green-400 transition-colors duration-300">
-                <Mail size={18} className="shrink-0" />
-                <span className="text-sm">hello@courtify.pk</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/60 hover:text-green-400 transition-colors duration-300">
-                <Phone size={18} className="shrink-0" />
-                <span className="text-sm">+92 300 1234567</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Instagram */}
+        <a
+          href="#"
+          className="text-white/50 hover:text-green-500 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5Z"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+            <path
+              d="M16 11.37a4 4 0 1 1-7.914 1.173A4 4 0 0 1 16 11.37Z"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+            <path
+              d="M17.5 6.5h.01"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+          </svg>
+        </a>
 
-        {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 pb-12 border-b border-white/10">
-          
-          {/* Product Links */}
-          <div>
-            <h5 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">
-              Product
-            </h5>
-            <ul className="space-y-3">
-              {footerLinks.product.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-white/60 hover:text-green-400 transition-colors duration-300 text-sm block"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* LinkedIn */}
+        <a
+          href="#"
+          className="text-white/50 hover:text-green-500 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+            <path
+              d="M6 9H2v12h4V9Z"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+            <path
+              d="M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+          </svg>
+        </a>
 
-          {/* Company Links */}
-          <div>
-            <h5 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">
-              Company
-            </h5>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-white/60 hover:text-green-400 transition-colors duration-300 text-sm block"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Twitter */}
+        <a
+          href="#"
+          className="text-white/50 hover:text-green-500 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 
+              2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5
+              c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8
+              1.1 0 3-1.2 3-1.2Z"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+          </svg>
+        </a>
 
-          {/* Support Links */}
-          <div>
-            <h5 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">
-              Support
-            </h5>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-white/60 hover:text-green-400 transition-colors duration-300 text-sm block"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Partners Links */}
-          <div>
-            <h5 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">
-              Partners
-            </h5>
-            <ul className="space-y-3">
-              {footerLinks.partners.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-white/60 hover:text-green-400 transition-colors duration-300 text-sm block"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Section: Social + Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
-            {socialLinks.map((social, index) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-green-400 hover:border-green-400 hover:scale-110 transition-all duration-300 group"
-                >
-                  <Icon className="text-white/60 group-hover:text-[#06131f] transition-colors duration-300" size={18} />
-                </a>
-              );
-            })}
-          </div>
-
-          {/* Copyright */}
-          <div className="text-white/50 text-sm text-center md:text-right">
-            <p>© {currentYear} Courtify. All rights reserved.</p>
-            <p className="mt-1">Made with ❤️ in Pakistan</p>
-          </div>
-        </div>
       </div>
     </footer>
   );
