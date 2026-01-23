@@ -11,10 +11,7 @@ const WhoIsItFor = () => {
         ))}
       </div>
 
-      {/* Chalk arrows (decorative) */}
-      <div className="absolute right-24 top-20 text-white/80 text-6xl rotate-6">
-        ⤴︎
-      </div>
+      
 
       <div className="max-w-7xl mx-auto px-6">
         
