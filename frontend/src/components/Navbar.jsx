@@ -4,10 +4,9 @@ const sections = [
   { id: "home", label: "Home" },
   { id: "problem", label: "The Problem" },
   { id: "why", label: "Why Courtify" },
-  { id: "who", label: "Who It’s For" },
+  { id: "who", label: "Who It's For" },
   { id: "how", label: "How It Works" },
   { id: "features", label: "Features" },
-  { id: "waitlist", label: "Waitlist" },
 ];
 
 const Navbar = () => {
@@ -44,12 +43,12 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center">
-      <div className="relative flex items-center border border-green-200 px-6 py-4 rounded-full text-white text-sm bg-transparent backdrop-blur-md w-[90%] max-w-6xl">
+      <div className="relative flex items-center justify-between border border-green-200 px-6 py-1.5 rounded-full text-white text-sm bg-transparent backdrop-blur-md w-[90%] max-w-6xl">
 
         {/* Logo */}
         <div
           onClick={() => scrollToSection("home")}
-          className="cursor-pointer"
+          className="cursor-pointer flex-shrink-0"
         >
           <img
             src="/ctfy-02.png"
@@ -59,12 +58,12 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-6 ml-8 flex-1 justify-center">
+        <div className="hidden md:flex items-center gap-6 flex-1 justify-evenly">
           {sections.map(({ id, label }) => (
             <button
               key={id}
               onClick={() => scrollToSection(id)}
-              className={`relative overflow-hidden h-6 group transition
+              className={`relative overflow-hidden h-6 group transition whitespace-nowrap
                 ${
                   active === id
                     ? "text-green-400"
@@ -83,14 +82,13 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Button */}
-        <div className="hidden ml-6 md:flex items-center">
-          
-            <button
-              onClick={() => scrollToSection("waitlist")}
-              className="border border-green-600 hover:bg-white px-4 py-2 rounded-full transition hover:text-black"
-            >
-              JOIN WAITLIST
-            </button>
+        <div className="hidden md:flex items-center flex-shrink-0">
+          <button
+            onClick={() => scrollToSection("waitlist")}
+            className="border border-green-600 hover:bg-white px-4 py-2 rounded-full transition hover:text-black"
+          >
+            JOIN WAITLIST
+          </button>
         </div>
 
         {/* Mobile Toggle */}
