@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { Building2, GraduationCap, ArrowRight, CheckCircle2 } from "lucide-react";
+import CourtWaitlistModal from "./CourtWaitlistModal";
+import CoachWaitlistModal from "./CoachWaitlistModal";
 
 const ForVendorsCTA = () => {
+  const [showCourtModal, setShowCourtModal] = useState(false);
+  const [showCoachModal, setShowCoachModal] = useState(false);
   const courtOwnerBenefits = [
     "Manage bookings effortlessly",
     "Increase utilization rates",
@@ -79,7 +84,7 @@ const ForVendorsCTA = () => {
               </ul>
 
               {/* CTA Button */}
-              <button className="group/btn w-full bg-green-400 hover:bg-green-500 text-[#06131f] font-bold py-5 px-8 rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/50 hover:scale-105 flex items-center justify-center gap-3">
+              <button onClick={() => setShowCourtModal(true)} className="group/btn w-full bg-green-400 hover:bg-green-500 text-[#06131f] font-bold py-5 px-8 rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/50 hover:scale-105 flex items-center justify-center gap-3">
                 <span className="text-lg">Join as Court Partner</span>
                 <ArrowRight className="group-hover/btn:translate-x-2 transition-transform duration-300" size={24} strokeWidth={2.5} />
               </button>
@@ -119,7 +124,7 @@ const ForVendorsCTA = () => {
               </ul>
 
               {/* CTA Button */}
-              <button className="group/btn w-full bg-green-400 hover:bg-green-500 text-[#06131f] font-bold py-5 px-8 rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/50 hover:scale-105 flex items-center justify-center gap-3">
+              <button onClick={() => setShowCoachModal(true)} className="group/btn w-full bg-green-400 hover:bg-green-500 text-[#06131f] font-bold py-5 px-8 rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-green-400/50 hover:scale-105 flex items-center justify-center gap-3">
                 <span className="text-lg">Join as Coach</span>
                 <ArrowRight className="group-hover/btn:translate-x-2 transition-transform duration-300" size={24} strokeWidth={2.5} />
               </button>
@@ -135,6 +140,9 @@ const ForVendorsCTA = () => {
           </p>
         </div>
       </div>
+
+      {showCourtModal && <CourtWaitlistModal onClose={() => setShowCourtModal(false)} />}
+      {showCoachModal && <CoachWaitlistModal onClose={() => setShowCoachModal(false)} />}
     </section>
   );
 };
