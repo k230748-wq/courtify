@@ -80,20 +80,20 @@ const WhyCourtify = () => {
             </div>
 
             {/* CTA-style stats */}
-            <div className="flex gap-8 pt-4">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-1">100%</div>
-                <div className="text-white/60 text-sm uppercase tracking-wide">Sports-Focused</div>
+            <div className="flex flex-wrap justify-center sm:justify-start gap-6 pt-4">
+              <div className="text-center min-w-[80px]">
+                <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-1">100%</div>
+                <div className="text-white/60 text-xs sm:text-sm uppercase tracking-wide">Sports-Focused</div>
               </div>
-              <div className="w-px bg-white/10" />
-              <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-1">3-in-1</div>
-                <div className="text-white/60 text-sm uppercase tracking-wide">Platform</div>
+              <div className="hidden sm:block w-px bg-white/10" />
+              <div className="text-center min-w-[80px]">
+                <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-1">3-in-1</div>
+                <div className="text-white/60 text-xs sm:text-sm uppercase tracking-wide">Platform</div>
               </div>
-              <div className="w-px bg-white/10" />
-              <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-1">PKR</div>
-                <div className="text-white/60 text-sm uppercase tracking-wide">Local First</div>
+              <div className="hidden sm:block w-px bg-white/10" />
+              <div className="text-center min-w-[80px]">
+                <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-1">PKR</div>
+                <div className="text-white/60 text-xs sm:text-sm uppercase tracking-wide">Local First</div>
               </div>
             </div>
           </div>
