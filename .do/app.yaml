@@ -4,7 +4,7 @@ services:
   - name: backend
     source_dir: backend
     github:
-      repo: MuhammadMehroz786/Courtify.pk
+      repo: k230748-wq/courtify
       branch: main
       deploy_on_push: true
     build_command: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
@@ -59,7 +59,7 @@ static_sites:
   - name: frontend
     source_dir: frontend
     github:
-      repo: MuhammadMehroz786/Courtify.pk
+      repo: k230748-wq/courtify
       branch: main
       deploy_on_push: true
     build_command: npm install && npm run build
