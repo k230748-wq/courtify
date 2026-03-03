@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import UserWaitlist
 
-# Register your models here.
+
+@admin.register(UserWaitlist)
+class UserWaitlistAdmin(admin.ModelAdmin):
+    list_display = ('email', 'phone', 'created_at')
+    search_fields = ('email', 'phone')
+    ordering = ('-created_at',)
