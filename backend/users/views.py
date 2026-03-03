@@ -37,7 +37,6 @@ class WaitListView(APIView):
     def post(self, request):
         serializer = WaitListSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
             try:
                 save_to_airtable(
                     email=serializer.validated_data['email'],
@@ -45,6 +44,7 @@ class WaitListView(APIView):
                 )
             except Exception as e:
                 print(f"Airtable sync failed: {e}")
+                return Response({"message": "Failed to join waitlist"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             return Response(
                 {"message": "You have been added to the waitlist"},
                 status=status.HTTP_201_CREATED
