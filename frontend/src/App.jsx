@@ -9,6 +9,7 @@ import HowItWorks from "./components/HowItWorks"
 import KeyFeatures from "./components/KeyFeatures"
 import WhyCourtify from "./components/WhyCourtify"
 import ForVendorsCTA from "./components/ForVendorsCTA"
+import FAQ from "./components/FAQ"
 import Footer from "./components/Footer"
 import SeparatorLine from "./components/SeparatorLine"
 
@@ -42,6 +43,9 @@ function App() {
           
           <SeparatorLine />
           <ForVendorsCTA />
+
+          <SeparatorLine />
+          <FAQ />
 
           <SeparatorLine />
           <Footer />

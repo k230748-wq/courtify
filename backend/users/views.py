@@ -12,12 +12,45 @@ AIRTABLE_TOKEN = os.getenv('AIRTABLE_TOKEN')
 AIRTABLE_BASE_ID = os.getenv('AIRTABLE_BASE_ID')
 
 
+def get_airtable_count(table_name):
+    url = f"https://api.airtable.com/v0/{AIRTABLE_BASE_ID}/{requests.utils.quote(table_name)}"
+    headers = {"Authorization": f"Bearer {AIRTABLE_TOKEN}"}
+    total = 0
+    offset = None
+    while True:
+        params = {"fields[]": "Email", "pageSize": 100}
+        if offset:
+            params["offset"] = offset
+        res = requests.get(url, headers=headers, params=params)
+        data = res.json()
+        total += len(data.get("records", []))
+        offset = data.get("offset")
+        if not offset:
+            break
+    return total
+
+
 def save_to_airtable(table_name, fields):
     url = f"https://api.airtable.com/v0/{AIRTABLE_BASE_ID}/{requests.utils.quote(table_name)}"
     headers = {"Authorization": f"Bearer {AIRTABLE_TOKEN}", "Content-Type": "application/json"}
     fields["Joined At"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
     response = requests.post(url, json={"fields": fields}, headers=headers)
     response.raise_for_status()
+
+
+WAITLIST_BASE_COUNT = 347  # seed count for social proof
+
+
+class WaitlistCountView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        try:
+            count = get_airtable_count("Courtify Waitlist")
+            return Response({"count": count + WAITLIST_BASE_COUNT}, status=status.HTTP_200_OK)
+        except Exception as e:
+            print(f"Airtable count failed: {e}")
+            return Response({"count": WAITLIST_BASE_COUNT}, status=status.HTTP_200_OK)
 
 
 class WaitListView(APIView):
