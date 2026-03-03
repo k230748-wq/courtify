@@ -1,5 +1,18 @@
 import { useState, useEffect } from 'react';
 
+const LAUNCH_DATE = new Date('2026-06-01T00:00:00Z');
+
+function getTimeLeft() {
+  const diff = LAUNCH_DATE - Date.now();
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  return {
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+  };
+}
+
 export default function WaitList() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -8,12 +21,18 @@ export default function WaitList() {
   const [modalType, setModalType] = useState('success');
   const [modalMessage, setModalMessage] = useState('');
   const [waitlistCount, setWaitlistCount] = useState(null);
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/waitlist-count/`)
       .then((r) => r.json())
       .then((d) => setWaitlistCount(d.count))
       .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    return () => clearInterval(timer);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -78,6 +97,29 @@ export default function WaitList() {
                 🎾 Join {waitlistCount}+ people already on the waitlist
               </p>
             )}
+          </div>
+
+          {/* Countdown Timer */}
+          <div className="mb-8">
+            <p className="text-center text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
+              Launching In
+            </p>
+            <div className="grid grid-cols-4 gap-3">
+              {[
+                { label: 'Days', value: timeLeft.days },
+                { label: 'Hours', value: timeLeft.hours },
+                { label: 'Mins', value: timeLeft.minutes },
+                { label: 'Secs', value: timeLeft.seconds },
+              ].map(({ label, value }) => (
+                <div key={label} className="flex flex-col items-center justify-center rounded-xl py-3"
+                  style={{ backgroundColor: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)' }}>
+                  <span className="text-3xl font-extrabold tabular-nums" style={{ color: '#22c55e' }}>
+                    {String(value).padStart(2, '0')}
+                  </span>
+                  <span className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="space-y-6">
