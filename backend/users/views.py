@@ -87,7 +87,7 @@ class CourtWaitListView(APIView):
                 "Phone": data['phone'],
                 "Court Name": data['court_name'],
                 "City": data['city'],
-                "Number of Courts": int(data.get('number_of_courts', 1)),
+                "Number of Courts": int(data.get('number_of_courts') or 1),
                 "Sports Offered": data['sports_offered'],
             })
         except Exception as e:
@@ -111,7 +111,7 @@ class CoachWaitListView(APIView):
                 "Email": data['email'],
                 "Phone": data['phone'],
                 "Sport": data['sport'],
-                "Experience (Years)": int(data.get('experience_years', 0)),
+                "Experience (Years)": int(data.get('experience_years') or 0),
                 "City": data['city'],
             })
         except Exception as e:
